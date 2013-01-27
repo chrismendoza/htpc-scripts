@@ -62,7 +62,7 @@ for video in VIDEO_OBJECTS:
 
         if not os.path.isfile(os.path.join(PROCESSING_DIR, backup_name)):
             print '>>> Copying file `{0}` to local system for re-encoding...'.format(video)
-            shutil.copy2(video, os.path.join(PROCESSING_DIR, backup_name))
+            shutil.copy(video, os.path.join(PROCESSING_DIR, backup_name))
 
         if os.path.isfile(os.path.join(PROCESSING_DIR, new_name)):
             print '>>> Deleting previous copy of new file `{0}`.'.format(new_name)
@@ -90,7 +90,7 @@ for video in VIDEO_OBJECTS:
                 time.sleep(1)
 
         print '>>> Copying new file `{0}` to remote system...'.format(new_name)
-        shutil.copy2(os.path.join(PROCESSING_DIR, new_name), os.path.join(original_path, new_name))
+        shutil.copy(os.path.join(PROCESSING_DIR, new_name), os.path.join(original_path, new_name))
 
         print '>>> Deleting orignal file `{0}` on remote system...'.format(video)
         os.remove(video)
