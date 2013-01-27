@@ -89,10 +89,10 @@ for video in VIDEO_OBJECTS:
                 s.stdout.flush()
                 time.sleep(1)
 
-        print '>>> Copying new file `{0}` to remote system...'.format(new_name)
-        shutil.copyfile(os.path.join(PROCESSING_DIR, new_name), os.path.join(original_path, new_name))
-
         print '>>> Deleting orignal file `{0}` on remote system...'.format(video)
         os.remove(video)
+
+        print '>>> Copying new file `{0}` to remote system...'.format(new_name)
+        shutil.copyfile(os.path.join(PROCESSING_DIR, new_name), os.path.join(original_path, new_name))
 
         print '>>> Done.\n'
